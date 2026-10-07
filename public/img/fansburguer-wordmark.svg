@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 40" role="img" aria-labelledby="title">
+  <title id="title">Fansburguer</title>
+  <text
+    x="2"
+    y="31"
+    fill="#F2711C"
+    font-family="Bowlby One, Arial Black, sans-serif"
+    font-size="30"
+    font-weight="900"
+    letter-spacing=".5"
+    transform="translate(2 2)"
+  >FANSBURGUER</text>
+  <text
+    x="2"
+    y="31"
+    fill="#F1EEFF"
+    font-family="Bowlby One, Arial Black, sans-serif"
+    font-size="30"
+    font-weight="900"
+    letter-spacing=".5"
+  >FANSBURGUER</text>
+</svg>

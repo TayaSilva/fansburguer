@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/*
+  DESIGN SYSTEM — tokens do Fansburguer
+  Tudo o que está em @theme vira classe do Tailwind:
+    --color-night   →  bg-night, text-night, border-night...
+    --font-display  →  font-display
+    --radius-card   →  rounded-card
+    --animate-float →  animate-float
+  "static" faz o Tailwind publicar todas as variáveis, mesmo as pouco usadas,
+  para a tela de Design System conseguir ler os valores.
+  Documentação completa: DESIGN_SYSTEM.md
+*/
+@theme static {
+  /* Fundos (tema escuro) */
+  --color-night: #15131f;     /* fundo do site */
+  --color-abyss: #0b0a12;     /* abertura e véu do modal */
+  --color-crypt: #0f0d17;     /* rodapé */
+  --color-panel: #1e1b2c;     /* cartões e painéis */
+  --color-panel-hi: #2d2843;  /* item selecionado, círculo de ícone */
+
+  /* Linhas */
+  --color-line: #343049;      /* divisórias e contorno de cartões */
+  --color-edge: #4a4466;      /* contorno de campos e botões vazados */
+
+  /* Texto */
+  --color-ghost: #f1eeff;     /* texto principal no escuro / fundo da seção clara */
+  --color-mist: #c9c4dd;      /* texto secundário */
+  --color-fog: #b4aec9;       /* texto de apoio e legendas */
+  --color-haze: #8f89a8;      /* placeholder de campo */
+  --color-ink: #3a3552;       /* texto corrido sobre fundo claro */
+
+  /* Marca */
+  --color-accent: #ff9f1c;    /* laranja cheddar: botões e destaques no escuro */
+  --color-accent-hi: #ffb54d; /* hover de link e ícones */
+
+  /* Seção clara ("A lenda") */
+  --color-flame: #e8590c;     /* palavra em destaque no título */
+  --color-ember: #d9480f;     /* botão laranja com texto branco */
+  --color-spark: #f2711c;     /* rabiscos decorativos */
+  --color-dusk: #1f1a45;      /* botão escuro sobre fundo claro */
+  --color-lilac: #d9d2ff;     /* fundo da etiqueta */
+  --color-plum: #4a3cc0;      /* texto da etiqueta */
+  --color-iris: #6b5be6;      /* seta decorativa */
+
+  /* Tipografia */
+  --font-display: "Bowlby One", sans-serif;          /* títulos, preços, logo */
+  --font-sans: "Figtree", system-ui, sans-serif;     /* todo o resto */
+
+  /* Raios */
+  --radius-field: 12px;  /* campos */
+  --radius-photo: 14px;  /* fotos e opções retangulares */
+  --radius-tile: 16px;   /* linhas do carrinho, cartões pequenos */
+  --radius-card: 20px;   /* cartões do cardápio e painéis */
+  --radius-panel: 24px;  /* login, cadastro, modal */
+
+  /* Movimento */
+  --animate-float: float 5s ease-in-out infinite;
+  --animate-card-float: card-float 3.2s ease-in-out infinite alternate;
+  --animate-wander: wander 18s ease-in-out infinite;
+  --animate-slide: slide 28s linear infinite;
+  --animate-intro-out: intro-out 4.2s forwards;
+  --animate-ghost-fly: ghost-fly 3.5s forwards;
+  --animate-whisper: whisper 2.2s forwards;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-22px) rotate(3deg); }
+  }
+  @keyframes card-float {
+    from { transform: translateY(-7px); }
+    to { transform: translateY(7px); }
+  }
+  @keyframes wander {
+    0%   { transform: translate(-20vw, min(30vh, 260px)); }
+    25%  { transform: translate(20vw, min(12vh, 110px)); }
+    50%  { transform: translate(50vw, min(42vh, 380px)); }
+    75%  { transform: translate(78vw, min(18vh, 150px)); }
+    100% { transform: translate(110vw, min(36vh, 300px)); }
+  }
+  @keyframes slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes intro-out {
+    0%, 80% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+  }
+  @keyframes ghost-fly {
+    0% { transform: scale(0.04) translateY(60px); opacity: 0; }
+    18% { transform: scale(0.12) translateY(20px) rotate(-5deg); opacity: 0.45; }
+    40% { transform: scale(0.3) rotate(4deg); opacity: 0.9; animation-timing-function: ease-in-out; }
+    58% { transform: scale(0.48) rotate(-3deg); opacity: 1; animation-timing-function: cubic-bezier(0.7, 0, 1, 0.5); }
+    100% { transform: scale(30); opacity: 1; }
+  }
+  @keyframes whisper {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    40% { opacity: 0.3; }
+    55% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--color-night); }
+
+button { cursor: pointer; }
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--color-accent-hi);
+  outline-offset: 2px;
+}
